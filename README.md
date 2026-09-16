@@ -10,7 +10,7 @@ without reading numbers.
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/labkita7/omarchy-sysmem --enable
+omarchy plugin add https://github.com/jhonoryza/omarchy-sysmem --enable
 ```
 
 Pick the `right` section when prompted (or any section you prefer).
