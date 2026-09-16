@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "vm.sysmem",
+  "name": "SysMem",
+  "version": "1.0.0",
+  "author": "jhonoryza",
+  "license": "MIT",
+  "description": "Live RAM + AMD VRAM usage in the bar",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "SysMem",
+    "description": "RAM (from /proc/meminfo) and AMD GPU VRAM (from amdgpu sysfs) as used/total, red above 90%",
+    "category": "System",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshSeconds": 2
+    },
+    "schema": [
+      { "key": "refreshSeconds", "type": "integer", "label": "Refresh interval (seconds)", "min": 1, "max": 10, "step": 1, "defaultValue": 2 }
+    ]
+  }
+}
