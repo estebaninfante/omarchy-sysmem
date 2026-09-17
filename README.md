@@ -1,6 +1,6 @@
 # SysMem
 
-Live RAM + AMD GPU VRAM usage in the [Omarchy](https://omarchy.org/) bar. Each
+Live RAM + GPU VRAM usage in the [Omarchy](https://omarchy.org/) bar. Each
 slot shows `used/total` plus a small vertical level bar — green under 70%,
 yellow 70–90%, red at 90% and above — so pressure is visible at a glance
 without reading numbers.
@@ -10,7 +10,7 @@ without reading numbers.
 ## Install
 
 ```bash
-omarchy plugin add https://github.com/jhonoryza/omarchy-sysmem --enable
+omarchy plugin add https://github.com/estebaninfante/omarchy-sysmem --enable
 ```
 
 Pick the `right` section when prompted (or any section you prefer).
@@ -50,13 +50,14 @@ Or manually:
 - Omarchy with Quickshell
 - `bash`, `awk`
 - RAM: always available via `/proc/meminfo`
-- VRAM: an AMD GPU with readable `mem_info_vram_*` sysfs nodes (shows `--` otherwise)
+- VRAM: an AMD GPU with readable `mem_info_vram_*` sysfs nodes, or an NVIDIA GPU
+  with `nvidia-smi` on `PATH` (shows `--` otherwise)
 
 ## How it works
 
 `sysmem.sh` prints one JSON line per run with RAM used/total (MiB, from
-`/proc/meminfo`) and, when present, AMD VRAM used/total (MiB, from
-`/sys/class/drm/card*/device/mem_info_vram_*`). `BarWidget.qml` formats the
+`/proc/meminfo`) and, when present, GPU VRAM used/total (MiB, from the AMD
+`amdgpu` sysfs nodes, or `nvidia-smi` for NVIDIA). `BarWidget.qml` formats the
 values and colors the level bars. No daemon, no root, no external dependencies.
 
 ## License
