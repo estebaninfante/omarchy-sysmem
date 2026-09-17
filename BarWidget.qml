@@ -32,8 +32,9 @@ BarWidget {
 
   // Fixed width from the widest string so the bar never shifts.
   readonly property real valueWidth: measureValue.implicitWidth
-  readonly property real groupWidth: 3 + 4 + measureIcon.implicitWidth + 4 + valueWidth
-  readonly property real fixedRowWidth: (5 + 4 + groupWidth) * 2 + 8
+  readonly property real iconWidth: measureIcon.implicitWidth
+  readonly property real groupWidth: 5 + 4 + iconWidth + 4 + valueWidth
+  readonly property real fixedRowWidth: groupWidth * 2 + 8
 
   Text {
     id: measureValue
