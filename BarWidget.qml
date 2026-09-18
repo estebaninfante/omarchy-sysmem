@@ -33,7 +33,7 @@ BarWidget {
   // Fixed width from the widest string so the bar never shifts.
   readonly property real valueWidth: measureValue.implicitWidth
   readonly property real iconWidth: measureIcon.implicitWidth
-  readonly property real groupWidth: 5 + 4 + iconWidth + 4 + valueWidth
+  readonly property real groupWidth: 5 + 4 + iconWidth + 8 + valueWidth
   readonly property real fixedRowWidth: groupWidth * 2 + 8
 
   Text {
@@ -112,7 +112,7 @@ BarWidget {
     property real iconWidth: 0
     property real valueWidth: 0
     property color barColor: "#3fb950"
-    property real textWidth: iconWidth + 4 + valueWidth
+    property real textWidth: iconWidth + 8 + valueWidth
     width: 5 + 4 + textWidth
     spacing: 4
     anchors.verticalCenter: parent.verticalCenter
@@ -136,12 +136,12 @@ BarWidget {
 
     Row {
       width: textWidth
-      spacing: 4
+      spacing: 8
       anchors.verticalCenter: parent.verticalCenter
 
       Text {
         width: iconWidth
-        horizontalAlignment: Text.AlignHCenter
+        horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
         text: icon
         font.family: Style.font.family
